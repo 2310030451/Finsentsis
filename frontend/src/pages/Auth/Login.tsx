@@ -99,8 +99,8 @@ const Login = () => {
           : "Enter OTP received through mail"
       }
       bottomText={step === "login" ? "Don't have account?" : undefined}
-      bottomLink={step === "login" ? "/" : undefined}
-      bottomLinkText={step === "login" ? "Sign Up" : undefined}
+      bottomLink={step === "login" ? "/Requestademo" : undefined}
+      bottomLinkText={step === "login" ? "Request a Demo" : undefined}
     >
       {step === "login" && (
         <>
