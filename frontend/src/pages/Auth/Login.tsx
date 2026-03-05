@@ -10,20 +10,21 @@ const Login = () => {
   const [step, setStep] = useState<"login" | "otp">("login");
   const [timer, setTimer] = useState(60);
 
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
   const navigate = useNavigate();
   const { login } = useAuth();
 
   const isExpired = timer === 0;
 
-  // Focus first OTP input
   useEffect(() => {
     if (step === "otp") {
       inputRefs.current[0]?.focus();
     }
   }, [step]);
 
-  // Timer logic
   useEffect(() => {
     if (step !== "otp" || timer === 0) return;
 
@@ -38,17 +39,18 @@ const Login = () => {
     e.preventDefault();
     if (!email) return;
 
+    setError("");
+    setSuccess("");
     setStep("otp");
     setTimer(30);
   };
 
   const handleVerify = () => {
-    const otp = inputRefs.current
-      .map((input) => input?.value ?? "")
-      .join("");
+    const otp = inputRefs.current.map((i) => i?.value ?? "").join("");
 
     if (otp.length !== 6) {
-      alert("Enter 6 digit OTP");
+      setError("Please enter a valid 6 digit OTP");
+      setSuccess("");
       return;
     }
 
@@ -66,23 +68,24 @@ const Login = () => {
   };
 
   const handleResendOTP = () => {
-    if (!isExpired) return; // 🔒 Block if timer not finished
+    if (!isExpired) return;
 
-    // Clear OTP inputs
     inputRefs.current.forEach((input) => {
       if (input) input.value = "";
     });
 
     setTimer(30);
+    setSuccess("OTP has been resent successfully");
+    setError("");
     inputRefs.current[0]?.focus();
-
-    alert("OTP Resent Successfully");
   };
 
   const handleBackToLogin = () => {
     setStep("login");
     setEmail("");
     setTimer(60);
+    setError("");
+    setSuccess("");
 
     inputRefs.current.forEach((input) => {
       if (input) input.value = "";
@@ -105,20 +108,28 @@ const Login = () => {
       {step === "login" && (
         <>
           <AuthTabs />
-          <div className="divider">
-            <span /> OR <span />
+
+          <div className="flex items-center gap-3 text-white text-xs mb-6">
+            <span className="flex-1 h-[1px] bg-[#2a2a2a]" />
+            OR
+            <span className="flex-1 h-[1px] bg-[#2a2a2a]" />
           </div>
+
           <AuthForm>
-            <form className="form" onSubmit={handleContinue}>
+            <form className="flex flex-col gap-4" onSubmit={handleContinue}>
               <input
-                className="auth-input"
+                className="bg-[#050505] border border-[#2a2a2a] p-3.5 rounded-xl text-white w-full focus:outline-none focus:border-[#9cff2e]"
                 placeholder="Enter company mail id"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
-              <button type="submit" className="btn-primary full">
+
+              <button
+                type="submit"
+                className="w-full bg-[#9cff2e] text-black p-3.5 rounded-xl font-medium hover:bg-[#85e600] transition"
+              >
                 Continue
               </button>
             </form>
@@ -128,13 +139,13 @@ const Login = () => {
 
       {step === "otp" && (
         <>
-          <div className="otp-row">
+          <div className="flex justify-center gap-2.5 my-6">
             {[...Array(6)].map((_, index) => (
               <input
                 key={index}
                 type="text"
                 maxLength={1}
-                className="otp-box"
+                className="w-12 h-12 bg-[#050505] border border-[#2a2a2a] rounded-xl text-center text-white text-lg focus:outline-none focus:border-[#9cff2e]"
                 ref={(el) => {
                   inputRefs.current[index] = el;
                 }}
@@ -159,40 +170,40 @@ const Login = () => {
             ))}
           </div>
 
-          {/* Timer */}
-          <div
-            style={{
-              marginBottom: "8px",
-              fontSize: "13px",
-              color: "#9ca3af",
-              textAlign: "center",
-            }}
-          >
+          {/* Status messages */}
+          {error && (
+            <div className="text-red-400 text-sm text-center mb-2">{error}</div>
+          )}
+
+          {success && (
+            <div className="text-green-400 text-sm text-center mb-2">
+              {success}
+            </div>
+          )}
+
+          <div className="text-center text-sm text-gray-400 mb-2">
             Time remaining: {timer}s
           </div>
 
-          {/* Resend button always visible */}
-          <div style={{ textAlign: "center", marginBottom: "15px" }}>
+          <div className="text-center mb-4">
             <button
               type="button"
               onClick={handleResendOTP}
               disabled={!isExpired}
-              style={{
-                background: "none",
-                border: "none",
-                color: isExpired ? "#2563eb" : "#9ca3af",
-                cursor: isExpired ? "pointer" : "not-allowed",
-                fontWeight: 500,
-              }}
+              className={`font-medium ${
+                isExpired
+                  ? "text-blue-500 hover:text-blue-400"
+                  : "text-gray-500 cursor-not-allowed"
+              }`}
             >
               Resend OTP
             </button>
           </div>
 
-          <div className="btn-row">
+          <div className="flex gap-3 mt-2 max-sm:flex-col">
             <button
               type="button"
-              className="btn-secondary"
+              className="flex-1 bg-gray-200 text-black p-3.5 rounded-xl hover:bg-gray-300 transition"
               onClick={handleBackToLogin}
             >
               Back to Login
@@ -200,7 +211,7 @@ const Login = () => {
 
             <button
               type="button"
-              className="btn-primary"
+              className="flex-1 bg-[#9cff2e] text-black p-3.5 rounded-xl hover:bg-[#85e600] transition"
               onClick={handleVerify}
             >
               Continue
