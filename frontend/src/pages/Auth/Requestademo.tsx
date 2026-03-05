@@ -20,12 +20,6 @@ const Requestademo = () => {
       return;
     }
 
-    console.log({
-      company,
-      email,
-      country,
-    });
-
     navigate("/login");
   };
 
@@ -40,14 +34,16 @@ const Requestademo = () => {
     >
       <AuthTabs />
 
-      <div className="divider">
-        <span /> OR <span />
+      <div className="flex items-center gap-3 text-white text-xs mb-6">
+        <span className="flex-1 h-[1px] bg-[#2a2a2a]" />
+        OR
+        <span className="flex-1 h-[1px] bg-[#2a2a2a]" />
       </div>
 
       <AuthForm>
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <input
-            className="auth-input"
+            className="bg-[#050505] border border-[#2a2a2a] p-3.5 rounded-xl text-white"
             placeholder="Enter company name"
             value={company}
             onChange={(e) => setCompany(e.target.value)}
@@ -55,7 +51,7 @@ const Requestademo = () => {
           />
 
           <input
-            className="auth-input"
+            className="bg-[#050505] border border-[#2a2a2a] p-3.5 rounded-xl text-white"
             placeholder="Enter company mail id"
             type="email"
             value={email}
@@ -63,53 +59,44 @@ const Requestademo = () => {
             required
           />
 
-          {/* Employees Size dropdown */}
-          <select className="auth-input">
-            <option value="">Employees Size</option>
+          <select className="bg-[#050505] border border-[#2a2a2a] p-3.5 rounded-xl text-white">
+            <option>Employees Size</option>
             <option>1-10</option>
             <option>11-50</option>
             <option>51-200</option>
             <option>200+</option>
           </select>
 
-          {/* Country dropdown with main countries */}
           <select
-            className="auth-input"
+            className="bg-[#050505] border border-[#2a2a2a] p-3.5 rounded-xl text-white"
             value={country}
             onChange={(e) => setCountry(e.target.value)}
           >
             <option value="">Select your country</option>
-            <option value="India">India</option>
-            <option value="United States">United States</option>
-            <option value="Canada">Canada</option>
-            <option value="United Kingdom">United Kingdom</option>
-            <option value="China">China</option>
-            <option value="Australia">Australia</option>
-            <option value="Germany">Germany</option>
-            <option value="Singapore">Singapore</option>
-            <option value="UAE">United Arab Emirates</option>
+            <option>India</option>
+            <option>United States</option>
+            <option>Canada</option>
+            <option>United Kingdom</option>
+            <option>China</option>
+            <option>Australia</option>
+            <option>Germany</option>
+            <option>Singapore</option>
+            <option>United Arab Emirates</option>
           </select>
 
-          {/* Terms Checkbox */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              marginTop: "10px",
-            }}
-          >
+          <div className="flex items-center gap-2 text-sm text-gray-400">
             <input
               type="checkbox"
               checked={accepted}
               onChange={(e) => setAccepted(e.target.checked)}
             />
-            <label style={{ fontSize: "13px", color: "#9ca3af" }}>
-              I agree to Terms & Conditions
-            </label>
+            I agree to Terms & Conditions
           </div>
 
-          <button type="submit" className="btn-primary full">
+          <button
+            type="submit"
+            className="w-full bg-[#9cff2e] text-black p-3.5 rounded-xl hover:bg-[#85e600]"
+          >
             Request a Demo
           </button>
         </form>
