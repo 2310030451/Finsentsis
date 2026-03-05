@@ -1,13 +1,22 @@
+ develop
 import { createContext, useContext, useState } from "react";
 
 type Role = "ADMIN" | "EMPLOYEE";
 
 interface User {
+
+import { createContext } from "react";
+
+export type Role = "ADMIN" | "EMPLOYEE";
+
+export interface User {
+main
   id: string;
   email: string;
   role: Role;
 }
 
+develop
 interface AuthContextType {
   user: User | null;
   login: (user: User) => void;
@@ -47,3 +56,13 @@ export const useAuth = () => {
 
   return context;
 };
+
+export interface AuthContextType {
+  user: User | null;
+  login: (userData: User) => void;
+  logout: () => void;
+}
+
+// ✅ Only context here
+export const AuthContext = createContext<AuthContextType | null>(null);
+ main
