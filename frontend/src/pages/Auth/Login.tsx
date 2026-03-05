@@ -4,6 +4,7 @@ import AuthLayout from "../../components/auth/AuthLayout";
 import AuthTabs from "../../components/auth/AuthTabs";
 import AuthForm from "../../components/auth/AuthForm";
 import { useAuth } from "../../context/useAuth";
+import { loginAPI, verifyOtpAPI } from "../../library/api";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -35,17 +36,28 @@ const Login = () => {
     return () => clearInterval(interval);
   }, [step, timer]);
 
-  const handleContinue = (e: React.FormEvent<HTMLFormElement>) => {
+  /*
+  SEND OTP
+  */
+  const handleContinue = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!email) return;
 
-    setError("");
-    setSuccess("");
-    setStep("otp");
-    setTimer(30);
+    try {
+      await loginAPI(email);
+
+      setError("");
+      setSuccess("OTP sent to your email");
+      setStep("otp");
+      setTimer(30);
+    } catch {
+      setError("Failed to send OTP");
+    }
   };
 
-  const handleVerify = () => {
+  /*
+  VERIFY OTP (REAL API)
+  */
+  const handleVerify = async () => {
     const otp = inputRefs.current.map((i) => i?.value ?? "").join("");
 
     if (otp.length !== 6) {
@@ -54,16 +66,19 @@ const Login = () => {
       return;
     }
 
-    const fakeUser = email.includes("admin")
-      ? { id: "1", email, role: "ADMIN" as const }
-      : { id: "2", email, role: "EMPLOYEE" as const };
+    try {
+      const response = await verifyOtpAPI(email, otp);
+      const data = response.data;
 
-    login(fakeUser);
+      login(data.user);
 
-    if (fakeUser.role === "ADMIN") {
-      navigate("/admin/dashboard");
-    } else {
-      navigate("/employee/dashboard");
+      if (data.user.role === "ADMIN") {
+        navigate("/admin/dashboard");
+      } else {
+        navigate("/employee/dashboard");
+      }
+    } catch {
+      setError("Invalid OTP");
     }
   };
 
@@ -83,7 +98,7 @@ const Login = () => {
   const handleBackToLogin = () => {
     setStep("login");
     setEmail("");
-    setTimer(60);
+    setTimer(30);
     setError("");
     setSuccess("");
 
@@ -147,10 +162,11 @@ const Login = () => {
                 maxLength={1}
                 className="w-12 h-12 bg-[#050505] border border-[#2a2a2a] rounded-xl text-center text-white text-lg focus:outline-none focus:border-[#9cff2e]"
                 ref={(el) => {
-                  inputRefs.current[index] = el;
-                }}
+  inputRefs.current[index] = el;
+}}
                 onChange={(e) => {
                   const value = e.target.value;
+
                   if (!/^[0-9]?$/.test(value)) return;
 
                   if (value && index < 5) {
@@ -170,7 +186,6 @@ const Login = () => {
             ))}
           </div>
 
-          {/* Status messages */}
           {error && (
             <div className="text-red-400 text-sm text-center mb-2">{error}</div>
           )}
