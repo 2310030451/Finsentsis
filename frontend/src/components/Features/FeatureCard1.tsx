@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 
+
 export interface FeatureData {
   number: string;
   title: string;
@@ -34,7 +35,7 @@ export function FeatureCard({ feature, index }: FeatureCardProps) {
       ref={ref}
       className="
       grid grid-cols-[50%_50%]
-      h-[450px]
+      h-[552px]
       border-2 border-[#4B4B4B]
       rounded-[10px]
       bg-[linear-gradient(253.41deg,#323232_38.52%,#080808_99.15%)]
@@ -51,23 +52,26 @@ export function FeatureCard({ feature, index }: FeatureCardProps) {
       }}
     >
       {/* LEFT SIDE */}
-      <div className="flex flex-col justify-center items-start px-10 gap-6">
+<div className="flex flex-col justify-center items-start px-[60px] gap-6 mt-[150px]">
+
 
         {/* Number Box */}
-        <div
-          className="
-          flex items-center justify-center
-          w-[100px] h-[100px]
-          rounded-[10px]
-          border border-white/10
-          bg-[#000000]
-          text-white
-          text-[32px]
-          font-medium
-          "
-        >
-          {feature.number}
-        </div>
+       <div
+  className="flex items-center justify-center
+  w-[109px] h-[109px]
+  rounded-[10px]
+  text-white text-[40px] font-medium leading-none
+
+  bg-[linear-gradient(135deg,rgba(255,255,255,0.65)_0%,rgba(255,255,255,0.20)_8%,#0a0a0a_22%,#000_100%)]
+
+  shadow-[inset_0_6px_10px_rgba(255,255,255,0.25),inset_0_-20px_35px_rgba(0,0,0,0.95)]
+  "
+>
+  {feature.number}
+</div>
+
+
+
 
         {/* Text */}
         <div className="space-y-6">
