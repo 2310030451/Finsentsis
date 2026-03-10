@@ -13,7 +13,7 @@ const containerStyle: React.CSSProperties = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  background: "radial-gradient(ellipse at 50% 50%, #111 0%, #060606 100%)",
+  background: "radial-gradient(ellipse at 50% 50%, #1E1E1E, #1C1C1C 100%)",
   overflow: "hidden",
 };
 
