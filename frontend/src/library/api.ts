@@ -48,4 +48,17 @@ export const requestDemoAPI = async (data: {
   return res.data;
 };
 
+/*
+CONTACT API
+*/
+export const contactAPI = async (data: {
+  name: string;
+  email: string;
+  message: string;
+}) => {
+  const res = await api.post("/contact", data);
+  return res.data;
+};
+
 export default api;
+
