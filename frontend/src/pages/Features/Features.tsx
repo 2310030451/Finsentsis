@@ -1,6 +1,8 @@
 import { FeatureCard } from "../../components/Features/FeatureCard1";
 import type { FeatureData } from "../../components/Features/FeatureCard1";
 import glowLine from "../../assets/glowline.png";
+import finsentsis from "../../assets/logos/finsentsis.png";
+
 import {
   Speedometer,
   GearWidget,
@@ -95,24 +97,28 @@ export default function Features() {
       {/* ── CTA Section ── */}
       <section className="cta-section">
 
-  {/* LEFT beams */}
+{/* LEFT beams */}
 <img src={glowLine} className="cta-glow-line glow-left glow-layer1" />
 <img src={glowLine} className="cta-glow-line glow-left glow-layer2" />
 <img src={glowLine} className="cta-glow-line glow-left glow-layer3" />
+<img src={glowLine} className="cta-glow-line glow-left glow-layer4" />
+<img src={glowLine} className="cta-glow-line glow-left glow-layer5" />
 
 {/* RIGHT beams */}
 <img src={glowLine} className="cta-glow-line glow-right glow-layer1" />
 <img src={glowLine} className="cta-glow-line glow-right glow-layer2" />
 <img src={glowLine} className="cta-glow-line glow-right glow-layer3" />
+<img src={glowLine} className="cta-glow-line glow-right glow-layer4" />
+<img src={glowLine} className="cta-glow-line glow-right glow-layer5" />
 
 
-  <div className="cta-content"></div>
+  <div className="cta-content">
   <h2 className="cta-heading">
     Ready to<br />
     Transform Your<br />
     Compliance?
   </h2>
-
+  </div>
   <p className="cta-sub">
     Join forward-thinking enterprises that are already using Finsentsis OS to simplify compliance and reduce risk.
   </p>
@@ -130,10 +136,8 @@ export default function Features() {
           <div>
             <div className="footer-brand-logo">
               <div className="footer-brand-icon">
-                <svg width="13" height="13" viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6h8M6 2v8" stroke="#0a0a0a" strokeWidth="2.2" strokeLinecap="round" />
-                </svg>
-              </div>
+  <img src={finsentsis} alt="Finsentsis Logo" className="footer-logo-img" />
+</div>
               Finsentsis
             </div>
             <p className="footer-newsletter-label">Stay Updated</p>
@@ -177,23 +181,41 @@ export default function Features() {
           <span className="footer-copy">
             © 2026 Finsentsis OS · An AI-Powered Compliance &amp; Governance Operating System
           </span>
+          
           <div className="footer-socials">
-            <svg className="footer-social-icon" viewBox="0 0 24 24" fill="white">
-              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-            </svg>
-            <svg className="footer-social-icon" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none" />
-            </svg>
-            <svg className="footer-social-icon" viewBox="0 0 24 24" fill="white">
-              <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.96-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
-              <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#0a0a0a" />
-            </svg>
-            <svg className="footer-social-icon" viewBox="0 0 24 24" fill="white">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-            </svg>
-          </div>
+
+  {/* Facebook */}
+  <div className="footer-social-icon">
+    <svg viewBox="0 0 24 24">
+      <path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v6h3v-6h2.5l.5-3H13v-2c0-.6.4-1 1-1z"/>
+    </svg>
+  </div>
+
+  {/* Instagram */}
+<div className="footer-social-icon">
+  <svg viewBox="0 0 24 24" fill="none" strokeWidth="2">
+    <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor"/>
+    <circle cx="12" cy="12" r="4" stroke="currentColor"/>
+    <circle cx="17" cy="7" r="1.2" fill="currentColor" stroke="none"/>
+  </svg>
+</div>
+
+  {/* YouTube */}
+  <div className="footer-social-icon">
+    <svg viewBox="0 0 24 24">
+      <path d="M23 7s-.2-1.6-.8-2.3c-.7-.9-1.5-.9-1.9-1C17.6 3.5 12 3.5 12 3.5h0s-5.6 0-8.3.2c-.4.1-1.2.1-1.9 1C1.2 5.4 1 7 1 7S.8 8.9.8 10.7v1.6C.8 14.1 1 16 1 16s.2 1.6.8 2.3c.7.9 1.6.9 2 .9 1.5.2 6.2.2 8.2.2s6.7 0 8.3-.2c.4 0 1.2 0 1.9-.9.6-.7.8-2.3.8-2.3s.2-1.9.2-3.7v-1.6C23.2 8.9 23 7 23 7z"/>
+      <polygon points="10 9 16 12 10 15" fill="#0a0a0a"/>
+    </svg>
+  </div>
+
+  {/* X */}
+  <div className="footer-social-icon">
+    <svg viewBox="0 0 24 24">
+      <path d="M18.9 2H22l-7.4 8.5L23 22h-6.8l-5.3-6.9L4.7 22H1.6l7.9-9.1L1 2h6.9l4.8 6.3L18.9 2z"/>
+    </svg>
+  </div>
+
+</div>
         </div>
       </footer>
 
@@ -330,7 +352,7 @@ export default function Features() {
 .hero-bg-text {
   position: relative;
   margin-top: 10px;
-  margin-bottom: -70px; /* overlap cards slightly */
+  margin-bottom: -75px; /* overlap cards slightly */
   z-index: 1;
   pointer-events: none;
   user-select: none;
@@ -343,7 +365,7 @@ export default function Features() {
   font-family: 'Inter', sans-serif;
   font-size: clamp(80px, 16vw, 250px);
   font-weight: 500;
-  letter-spacing: -0.08em;
+  letter-spacing: -0.07em;
   line-height: 1;
   white-space: nowrap;
   display: block;
@@ -356,7 +378,7 @@ export default function Features() {
     180deg,
     #ffffff 0%,
     rgba(255,255,255,0.9) 30%,
-    rgba(255,255,255,0.4) 55%,
+    rgba(255,255,255,0.4) 65%,
     rgba(255,255,255,0) 100%
   );
 
@@ -366,8 +388,8 @@ export default function Features() {
 
   /* glow */
   text-shadow:
-    0 0 20px rgba(255,255,255,0.35),
-    0 0 30px rgba(255,255,255,0.2);
+    0 0 25px rgba(255,255,255,0.35),
+    0 0 45px rgba(255,255,255,0.2);
 }
 
         /* ── Feature Cards Grid ── */
@@ -491,45 +513,69 @@ export default function Features() {
 /* glow images */
 .cta-glow-line{
   position:absolute;
-  width:900px;
+  width:925px;
 
   pointer-events:none;
   mix-blend-mode:screen;
+  opacity:0.75;
 
-  opacity:0.8;
+  transform:scaleX(1.3);
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 25%,
+    black 75%,
+    transparent 100%
+  );
 }
 
 /* layer depth */
 
 .glow-layer1{
-  filter: blur(10px);
-  opacity:0.9;
+  filter: blur(6px);
+  opacity:1;
 }
 
 .glow-layer2{
-  filter: blur(35px);
-  opacity:0.6;
+  filter: blur(280px);
+  opacity:0.55;
 }
 
 .glow-layer3{
-  filter: blur(80px);
+  filter: blur(320px);
   opacity:0.35;
 }
 
-
-/* top-left streak */
-.glow-left{
-  top:-120px;
-  left:-300px;
-  transform:rotate(-1deg);
+.glow-layer4{
+  filter: blur(160px);
+  opacity:0.25;
 }
 
-/* bottom-right streak */
-.glow-right{
-  bottom:-150px;
-  right:-300px;
-  transform:rotate(-82deg) scaleX(-1);
+.glow-layer5{
+  filter: blur(200px);
+  opacity:0.15;
 }
+
+
+/* LEFT beams */
+
+.glow-left.glow-layer1 { top:-120px; left:-380px; transform:rotate(-2deg); }
+.glow-left.glow-layer2 { top:-150px; left:-340px; transform:rotate(-2deg); }
+.glow-left.glow-layer3 { top:-180px; left:-300px; transform:rotate(-2deg); }
+.glow-left.glow-layer4 { top:-210px; left:-260px; transform:rotate(-2deg); }
+.glow-left.glow-layer5 { top:-240px; left:-220px; transform:rotate(-2deg); }
+
+
+/* RIGHT beams */
+
+.glow-right.glow-layer1 { bottom:-120px; right:-380px; transform:rotate(-82deg) scaleX(-1); }
+.glow-right.glow-layer2 { bottom:-150px; right:-340px; transform:rotate(22deg) scaleX(-1); }
+.glow-right.glow-layer3 { bottom:-180px; right:-300px; transform:rotate(22deg) scaleX(-1); }
+.glow-right.glow-layer4 { bottom:-210px; right:-260px; transform:rotate(22deg) scaleX(-1); }
+.glow-right.glow-layer5 { bottom:-240px; right:-220px; transform:rotate(22deg) scaleX(-1); }
+
+
 
 /* gradient overlay to fade out glows at edges */
 .cta-section::before{
@@ -537,13 +583,42 @@ export default function Features() {
   position:absolute;
   inset:0;
 
-  background:linear-gradient(
-    to bottom,
-    rgba(13,13,13,0) 0%,
-    rgba(13,13,13,0.5) 35%,
-    rgba(13,13,13,1) 70%
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(13,13,13,0) 0%,
+      rgba(13,13,13,0.35) 40%,
+      rgba(13,13,13,0.75) 70%,
+      rgba(13,13,13,1) 100%
+    ),
+    linear-gradient(
+      to right,
+      rgba(13,13,13,0) 60%,
+      rgba(13,13,13,0.6) 85%,
+      rgba(13,13,13,1) 100%
+    );
+
+  pointer-events:none;
+}
+
+.cta-section::after{
+  content:"";
+  position:absolute;
+
+  right:-250px;
+  bottom:-250px;
+
+  width:520px;
+  height:520px;
+
+  background: radial-gradient(
+    circle,
+    rgba(154,255,46,0.35) 0%,
+    rgba(154,255,46,0.15) 40%,
+    transparent 75%
   );
 
+  filter: blur(140px);
   pointer-events:none;
 }
 
@@ -632,7 +707,7 @@ export default function Features() {
 
         /* ── Footer ── */
         .footer {
-          background: #0a0a0a;
+          background: #131313;
           border-top: 1px solid rgba(255,255,255,0.06);
           padding: 52px 48px 28px;
         }
@@ -646,10 +721,11 @@ export default function Features() {
           font-family: 'Syne', sans-serif; font-weight: 700;
           font-size: 15px; color: #fff; margin-bottom: 18px;
         }
-        .footer-brand-icon {
-          width: 22px; height: 22px; background: #9AFF2E;
-          border-radius: 5px; display: flex; align-items: center; justify-content: center;
-        }
+        .footer-logo-img{
+  width:30px;
+  height:30px;
+  object-fit:contain;
+}
         .footer-newsletter-label {
           font-size: 16px; font-weight: 700; color: #fff;
           font-family: 'Syne', sans-serif; margin-bottom: 6px;
@@ -679,15 +755,15 @@ export default function Features() {
         }
         .footer-input-btn:hover { opacity: 0.85; }
         .footer-col-title {
-          font-size: 13px; font-weight: 600; color: #fff;
-          font-family: 'Syne', sans-serif; margin-bottom: 16px;
+          font-size: 13px; font-weight: 600; color: #ffff;
+          font-family: 'inter', sans-serif; margin-bottom: 16px;
         }
         .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
         .footer-links a {
           font-size: 13px; color: rgba(255,255,255,0.42);
           text-decoration: none; transition: color 0.2s;
         }
-        .footer-links a:hover { color: #fff; }
+        .footer-links a:hover { color: #ffff; }
         .footer-bottom {
           border-top: 1px solid rgba(255,255,255,0.06);
           padding-top: 20px;
@@ -695,12 +771,56 @@ export default function Features() {
           flex-wrap: wrap; gap: 12px;
         }
         .footer-copy { font-size: 11.5px; color: rgba(255,255,255,0.25); }
-        .footer-socials { display: flex; align-items: center; gap: 18px; }
-        .footer-social-icon {
-          width: 18px; height: 18px; opacity: 0.4;
-          transition: opacity 0.2s; cursor: pointer;
-        }
-        .footer-social-icon:hover { opacity: 1; }
+        .footer-socials{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.footer-social-icon{
+  width:36px;
+  height:36px;
+  
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:6px;
+
+  background:#121212;
+
+  border:1px solid rgba(255,255,255,0.06);
+
+  transition:all .25s ease;
+  cursor:pointer;
+}
+
+.footer-social-icon svg{
+  width:20px;
+  height:20px;
+
+  color:#9AFF2E;
+}
+
+.footer-social-icon svg path{
+  fill:#9AFF2E;
+}
+
+.footer-social-icon svg rect,
+.footer-social-icon svg circle{
+  stroke:#9AFF2E;
+  fill:none;
+}
+
+.footer-social-icon:hover{
+  background:#1a1a1a;
+
+  box-shadow:
+    0 0 10px rgba(154,255,46,0.35);
+}
+
+        
 
         /* ── Scrollbar ── */
         ::-webkit-scrollbar { width: 4px; }
