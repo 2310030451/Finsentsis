@@ -1,309 +1,295 @@
-import { useMemo, useState } from "react";
-import { HiArrowUpRight } from "react-icons/hi2";
-import { useNavigate } from "react-router-dom";
-
-type CardKey = "email" | "phone" | "location";
-
-type Info = {
-  key: CardKey;
-  icon: string;
-  title: string;
-  value: string;
-};
-
-function InfoCard({
-  icon,
-  title,
-  value,
-  active,
-  onClick,
-}: {
-  icon: string;
-  title: string;
-  value: string;
-  active: boolean;
-  onClick: () => void;
-}) {
-  return (
-    <button
-      onClick={onClick}
-      className={`flex items-center gap-3 p-[14px] rounded-[12px] border w-full text-left transition
-      ${
-        active
-          ? "bg-[#9BFF1C]/10 border-[#9BFF1C]/40 shadow-[0_0_25px_rgba(155,255,28,0.25)]"
-          : "bg-white/[0.04] border-white/[0.09]"
-      }`}
-    >
-      <div className="w-[42px] h-[42px] rounded-[10px] flex items-center justify-center bg-black/60 border border-white/[0.12] text-[18px] text-white">
-        {icon}
-      </div>
-
-      <div>
-        <div className="text-[12px] text-white/45">{title}</div>
-        <div className="text-[13.5px] text-white/85">{value}</div>
-      </div>
-    </button>
-  );
-}
+import glowLine from "../../assets/glowline.png";
+import { Link } from "react-router-dom";
+import ContactForm from "../../components/contact/ContactForm";
+import ContactInfo from "../../components/contact/ContactInfo";
+import Footer from "../../components/Home/Footer";
 
 export default function Contact() {
-  const [activeCard, setActiveCard] = useState<CardKey>("phone");
-  const navigate = useNavigate();
-  const cards: Info[] = useMemo(
-    () => [
-      { key: "email", icon: "✉", title: "Email", value: "finsentsis@gmail.com" },
-      { key: "phone", icon: "☎", title: "Phone", value: "+91 9322872245" },
-      { key: "location", icon: "⌖", title: "Location", value: "Hyderabad, India" },
-    ],
-    []
-  );
-
-  const hintText =
-    activeCard === "email"
-      ? "Ask us anything. We’ll reply by email."
-      : activeCard === "phone"
-      ? "Leave your number/message. We can call you back."
-      : "Ask about office location, directions, or visits.";
-
   return (
-    <div className="page min-h-screen relative overflow-hidden bg-[#07080a] text-white">
+    <div className="page min-h-screen relative overflow-hidden bg-[#111111] text-white">
 
-      <main className="relative z-10 max-w-[1080px] mx-auto px-[22px] pt-[40px] pb-[60px]">
+      <section className="contact-cta-section">
 
-        {/* CONTACT SECTION */}
+        {/* TOP WHITE GLOW RAYS */}
+<div className="sun-rays">
+  <span className="ray ray1"></span>  
+  <span className="ray ray2"></span>
+  <span className="ray ray3"></span>
+  <span className="ray ray4"></span>
+  <span className="ray ray5"></span>
+</div>
 
-        <section>
+        {/* GLOW BACKGROUND */}
+
+        <img src={glowLine} className="cta-glow-line glow-left glow-layer1" />
+        <img src={glowLine} className="cta-glow-line glow-left glow-layer2" />
+        <img src={glowLine} className="cta-glow-line glow-left glow-layer3" />
+        <img src={glowLine} className="cta-glow-line glow-left glow-layer4" />
+        <img src={glowLine} className="cta-glow-line glow-left glow-layer5" />
+
+        <img src={glowLine} className="cta-glow-line glow-right glow-layer1" />
+        <img src={glowLine} className="cta-glow-line glow-right glow-layer2" />
+        <img src={glowLine} className="cta-glow-line glow-right glow-layer3" />
+        <img src={glowLine} className="cta-glow-line glow-right glow-layer4" />
+        <img src={glowLine} className="cta-glow-line glow-right glow-layer5" />
+
+
+        <div className="relative z-20 max-w-[1080px] mx-auto px-[22px] pt-[200px]">
+
+          {/* CONTACT HEADER */}
 
           <div className="text-center mb-[28px]">
 
-            <h1 className="text-[42px] tracking-[-1px] font-semibold mb-[10px]">
+            <h1 className="text-[56px] md:text-[80px] font-medium leading-[0.96] tracking-[-0.02em] mb-[24px]">
               Get in Touch with us
             </h1>
 
-            <p className="max-w-[650px] mx-auto text-[14px] text-white/60 leading-[1.6]">
+            <p className="max-w-[770px] mx-auto text-[16px] md:text-[20px] text-white/60 leading-[1.38]">
               Have questions about Finsentsis? Our team is here to help.
               Reach out and we’ll get back to you as soon as possible.
             </p>
 
           </div>
 
-          <div className="grid md:grid-cols-[360px_1fr] gap-[20px]">
+          {/* CONTACT GRID */}
 
-            {/* LEFT CONTACT CARDS */}
+          <div className="grid md:grid-cols-[360px_1fr] gap-[20px] mb-[140px] mt-[100px]">
 
-            <div className="flex flex-col gap-[20px]">
-
-              {cards.map((c) => (
-                <InfoCard
-                  key={c.key}
-                  icon={c.icon}
-                  title={c.title}
-                  value={c.value}
-                  active={activeCard === c.key}
-                  onClick={() => setActiveCard(c.key)}
-                />
-              ))}
-
-            </div>
-
-            {/* CONTACT FORM */}
-
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                alert("Message sent (demo) ✅");
-              }}
-              className="p-[20px] rounded-[12px]
-              bg-black/[0.2] "
-            >
-
-              <div className="mb-[12px] text-white/55 text-[12px]">
-                {hintText}
-              </div>
-
-              <div className="flex flex-col gap-[16px]">
-
-                <label className="flex flex-col gap-[8px]">
-                  <span className="text-[12px] text-white/45">Name</span>
-
-                  <input
-                    type="text"
-                    placeholder="Enter your name"
-                    required
-                    className="bg-black/[0.55] border border-white/[0.10] rounded-[12px]
-                    p-[12px] text-white outline-none transition
-                    focus:border-[#9BFF1C] focus:ring-2 focus:ring-[#9BFF1C]/20"
-                  />
-                </label>
-
-                <label className="flex flex-col gap-[8px]">
-                  <span className="text-[12px] text-white/45">Email</span>
-
-                  <input
-                    type="email"
-                    placeholder="Enter your email"
-                    required
-                    className="bg-black/[0.55] border border-white/[0.10] rounded-[12px]
-                    p-[12px] text-white outline-none transition
-                    focus:border-[#9BFF1C] focus:ring-2 focus:ring-[#9BFF1C]/20"
-                  />
-                </label>
-
-                <label className="flex flex-col gap-[8px]">
-                  <span className="text-[12px] text-white/45">Message</span>
-
-                  <textarea
-                    rows={5}
-                    placeholder="Type your message"
-                    required
-                    className="bg-black/[0.55] border border-white/[0.10] rounded-[12px]
-                    p-[12px] text-white outline-none transition
-                    focus:border-[#9BFF1C] focus:ring-2 focus:ring-[#9BFF1C]/20"
-                  />
-                </label>
-
-                <button
-                  className="w-full py-[12px] rounded-[12px] bg-[#9BFF1C]
-                  text-[#081008] font-bold
-                  shadow-[0_10px_40px_rgba(155,255,28,0.35)]
-                  hover:scale-[1.02] transition"
-                >
-                  Send your message
-                </button>
-
-              </div>
-
-            </form>
+            <ContactInfo />
+            <ContactForm />
 
           </div>
-        </section>
 
-        {/* BUILD FUTURE SECTION */}
 
-        <section className="flex justify-center mt-[60px]">
+          {/* CTA */}
 
-          <div
-    className="w-full max-w-[760px] text-center
-    px-[36px] py-[50px]"
-  >
+          <div className="cta-content mt-[100px] md:mt-[180px] mb-[100px] md:mb-[180px]">
 
-            <h2 className="text-[68px] leading-[0.9] tracking-[-2px] font-extrabold mb-[16px]">
+            <h2 className="cta-heading">
               Let's Build <br />
-              the Future <br />
+              The Future <br />
               Together
             </h2>
 
-            <p className="max-w-[640px] mx-auto text-[14px] text-white/60 leading-[1.7] mb-[26px]">
-              Let’s build the future of intelligent compliance together.
-              Explore what we do and how we can help.
+            <p className="cta-sub">
+              Let's build the future of intelligent compliance together.
             </p>
 
-            <div className="flex justify-center gap-[14px] flex-wrap">
+            <div className="cta-buttons">
 
-              <button
-                className="h-[48px] px-[24px] rounded-full bg-[#9BFF1C]
-                text-[#071007] font-bold flex items-center gap-[8px]
-                shadow-[0_14px_40px_rgba(155,255,28,0.35)]
-                hover:scale-[1.03] transition"
-              >
-                Start a free trial
-                <HiArrowUpRight size={18} />
-              </button>
+              <a href="#" className="btn-primary">
+                Start free trial ↗︎
+              </a>
 
-              <button onClick={() => navigate("/Requestademo")}
-                className="h-[48px] px-[24px] rounded-full
-                bg-white/[0.06] border border-white/[0.14]
-                text-white/80 flex items-center gap-[8px]
-                hover:bg-white/[0.08] transition"
-              >
-                Schedule Demo
-                <HiArrowUpRight size={18} />
-              </button>
+              <Link to="/Requestademo" className="btn-secondary">
+                Schedule Demo ↗
+              </Link>
 
             </div>
 
           </div>
 
-        </section>
+        </div>
 
-      </main>
+      </section>
 
-      {/* BACKGROUND LIGHTING */}
+      <Footer />
 
-      <style>{`
+<style>{`
 
-.page::before{
-  content:"";
-  position:absolute;
-  inset:-150px;
+/* MAIN SECTION */
+
+.contact-cta-section{
+  position:relative;
+  overflow:hidden;
+  padding-bottom:50px;
   z-index:0;
-  pointer-events:none;
+}
 
-  background:
 
-  radial-gradient(
-    900px 450px at 50% -10%,
-    rgba(255,255,255,0.18),
-    rgba(255,255,255,0.05) 40%,
-    transparent 70%
-  ),
 
-  linear-gradient(130deg, transparent 48%, rgba(255,255,255,0.16) 50%, transparent 52%),
-  linear-gradient(130deg, transparent 48%, rgba(255,255,255,0.16) 50%, transparent 52%),
-  linear-gradient(130deg, transparent 48%, rgba(255,255,255,0.16) 50%, transparent 52%),
-  linear-gradient(130deg, transparent 48%, rgba(255,255,255,0.16) 50%, transparent 52%),
-  linear-gradient(130deg, transparent 48%, rgba(255,255,255,0.16) 50%, transparent 52%),
-  linear-gradient(130deg, transparent 48%, rgba(255,255,255,0.16) 50%, transparent 52%),
-  linear-gradient(130deg, transparent 48%, rgba(255,255,255,0.16) 50%, transparent 52%);
 
-  background-size:
-    100% 100%,
-    80% 120%,80% 120%,80% 120%,80% 120%,80% 120%,80% 120%,80% 120%;
+  /* Sun Rays Effect */
+          .sun-rays {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 550px;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -2;
+}  
+  
+.ray {
+  position: absolute;
+  top: -500px;
 
-  background-position:
-    center,
-    10% 0,
-    25% 0,
-    40% 0,
-    55% 0,
-    70% 0,
-    85% 0,
-    100% 0;
+  width: 100px;
+  height: 1950px;
 
-  background-repeat:no-repeat;
-
-  filter: blur(95px);
-
-  mask-image: linear-gradient(
+  background: linear-gradient(
     to bottom,
-    black 0%,
-    black 45%,
-    rgba(0,0,0,0.7) 55%,
-    transparent 65%
+    rgba(255,255,255,0.13) 0%,
+    rgba(255,255,255,0.38) 40%,
+    rgba(255,255,255,0.33) 60%,
+    transparent 90%
+  );
+
+  filter: blur(48px);
+  transform-origin: top;
+
+  left: var(--left);
+  transform: rotate(var(--angle));
+  opacity: var(--opacity, 1);
+
+  mix-blend-mode: screen; 
+}
+
+/* Position and rotate rays to fan out across the hero section */
+
+.ray1 { --left: 30%; --angle: 30deg; --opacity: 0.3; }
+.ray2 { --left: 50%; --angle: 28deg; --opacity: 0.6; }
+.ray3 { --left: 70%; --angle: 28deg; --opacity: 0.9; }
+.ray4 { --left: 90%; --angle: 28deg;  --opacity: 1.2; }
+.ray5 { --left: 110%; --angle: 25deg; --opacity: 1.5; }
+
+
+
+  .sun-rays {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,0.9) 30%,
+    rgba(0,0,0,0.5) 60%,
+    transparent 90%
   );
 }
 
 
-.page::after{
-  content:"";
+
+
+/* GLOW */
+
+.cta-glow-line{
   position:absolute;
-  inset:0;
-  z-index:0;
+  width:925px;
   pointer-events:none;
-
-  background:
-
+  mix-blend-mode:screen;
+  opacity:0.6;
+  transform:scaleX(1.3);
+  z-index:-1;
   
 
-  
-
-  radial-gradient(
-    900px 700px at 50% 10%,
-    transparent 30%,
-    rgba(0,0,0,0.75) 90%
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 25%,
+    black 35%,
+    transparent 100%
   );
+}
 
-  filter: blur(90px);
+/* LAYERS */
+
+.glow-layer1{
+  filter: blur(6px);
+  opacity:1;
+}
+
+.glow-layer2{
+  filter: blur(280px);
+  opacity:0.55;
+}
+
+.glow-layer3{
+  filter: blur(320px);
+  opacity:0.35;
+}
+
+.glow-layer4{
+  filter: blur(160px);
+  opacity:0.25;
+}
+
+.glow-layer5{
+  filter: blur(200px);
+  opacity:0.15;
+}
+
+/* LEFT */
+.glow-left{
+width: 1130px
+}
+
+.glow-left.glow-layer1 { bottom:150px; left:-380px; transform:rotate(-5deg); }
+.glow-left.glow-layer2 { bottom:150px; left:-340px; transform:rotate(-5deg); }
+.glow-left.glow-layer3 { bottom:180px; left:-300px; transform:rotate(-5deg); }
+.glow-left.glow-layer4 { bottom:210px; left:-260px; transform:rotate(-5deg); }
+.glow-left.glow-layer5 { bottom:240px; left:-220px; transform:rotate(-5deg); }
+
+/* RIGHT */
+
+.glow-right.glow-layer1 { bottom:-120px; right:-380px; transform:rotate(-82deg) scaleX(-1); }
+.glow-right.glow-layer2 { bottom:-150px; right:-340px; transform:rotate(22deg) scaleX(-1); }
+.glow-right.glow-layer3 { bottom:-180px; right:-300px; transform:rotate(22deg) scaleX(-1); }
+.glow-right.glow-layer4 { bottom:-210px; right:-260px; transform:rotate(22deg) scaleX(-1); }
+.glow-right.glow-layer5 { bottom:-240px; right:-220px; transform:rotate(22deg) scaleX(-1); }
+
+
+/* CTA TEXT */
+
+.cta-content{
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+
+.cta-heading{
+  font-family:'inter',sans-serif;
+  font-size:clamp(44px,8vw,100px);
+  font-weight:700;
+  color:#fff;
+  line-height:1;
+  letter-spacing:-0.02em;
+  margin-bottom:20px;
+}
+
+.cta-sub{
+  font-size:14px;
+  color:rgba(255,255,255,0.5);
+  max-width:340px;
+  margin:0 auto 36px;
+}
+
+/* BUTTONS */
+
+.cta-buttons{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.btn-primary{
+  padding:12px 24px;
+  border-radius:999px;
+  background:#9AFF2E;
+  color:#0a0a0a;
+  font-weight:600;
+  text-decoration:none;
+}
+
+.btn-secondary{
+  padding:12px 24px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,0.18);
+  color:#fff;
+  text-decoration:none;
+}
+
+.btn-secondary:hover{
+  border-color:rgba(255,255,255,0.4);
 }
 
 `}</style>
