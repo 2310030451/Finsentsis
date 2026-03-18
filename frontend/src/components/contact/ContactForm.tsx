@@ -2,7 +2,7 @@ import { useState } from "react";
 import { contactAPI } from "../../library/api";
 
 const inputClass =
-  "w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-lime-500/60";
+  "w-full rounded-lg border border-white/10 bg-[#111111] px-4 py-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-lime-400 focus:ring-1 focus:ring-lime-400/40 transition";
 
 const ContactForm = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -38,7 +38,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
+    <div className="relative z-20 rounded-2xl border border-white/10 bg-gradient-to-b from-[#3B3B3B]/10 to-[#111111] p-6 backdrop-blur-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_0_40px_rgba(0,0,0,0.6)]">
       <form onSubmit={onSubmit} className="space-y-4">
         <div>
           <label className="mb-2 block text-xs text-white/70">Name</label>
