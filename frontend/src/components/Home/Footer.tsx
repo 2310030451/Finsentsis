@@ -103,7 +103,7 @@ export default function Footer() {
 
  /* ── Footer ── */
         .footer {
-          background: #131313;
+          background: #171717;
           border-top: 1px solid rgba(255,255,255,0.06);
           padding: 52px 48px 28px;
         }
