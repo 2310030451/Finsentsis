@@ -4,6 +4,7 @@ import type { FeatureData } from "../../components/Features/FeatureCard1";
 /* ✅ Import Footer Component */
 import Footer from "../../components/Home/Footer";
 import Cta from "../../components/Home/Cta";
+import Navbar from "../../components/Home/Navbar";
 
 import {
   Speedometer,
@@ -63,10 +64,12 @@ export default function Features() {
   return (
     <div className="page">
 
+      <Navbar/>
+
       {/* HERO */}
       <section className="hero-section">
         <div className="hero-content">
-          <h1 className="hero-heading">
+          <h1 className="hero-heading mt-[80px] mb-[46px]">
             Intelligent Features That Power Autonomy
           </h1>
 
@@ -81,6 +84,7 @@ export default function Features() {
           <span>Core Features</span>
         </div>
       </section>
+
 
       {/* SUN RAYS */}
       <div className="sun-rays">
@@ -97,8 +101,8 @@ export default function Features() {
         ))}
       </section>
 
-      {/* CTA */}
-      <Cta />
+    
+    <Cta />
 
       {/* ✅ Footer Component */}
       <Footer />
@@ -377,7 +381,9 @@ export default function Features() {
 
 
 
-      
+
+
+       
         @media (max-width: 768px) {
           .footer-top { grid-template-columns: 1fr 1fr; }
           .nav-center { display: none; }
