@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 import ContactForm from "../../components/contact/ContactForm";
 import ContactInfo from "../../components/contact/ContactInfo";
 import Footer from "../../components/Home/Footer";
+import Navbar from "../../components/Home/Navbar";
 
 export default function Contact() {
   return (
     <div className="page min-h-screen relative overflow-hidden bg-[#111111] text-white">
+
+      <Navbar/>
 
       <section className="contact-cta-section">
 
@@ -34,7 +37,7 @@ export default function Contact() {
         <img src={glowLine} className="cta-glow-line glow-right glow-layer5" />
 
 
-        <div className="relative z-20 max-w-[1080px] mx-auto px-[22px] pt-[200px]">
+        <div className="relative z-20 max-w-[1080px] mx-auto px-[22px] pt-[170px]">
 
           {/* CONTACT HEADER */}
 
