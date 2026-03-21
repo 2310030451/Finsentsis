@@ -8,6 +8,7 @@ import Pricing from "./pages/Pricing/Pricing";
 import Leadership from "./pages/Leadership/Leadership";
 import Contact from "./pages/contact/Contact";
 import Features from "./pages/Features/Features";
+import Careers from "./pages/Careers/Careers";
 
 
 import ProtectedRoute from "./components/auth/ProtectedRoute";
@@ -29,6 +30,7 @@ function App() {
           <Route path="/Leadership" element={<Leadership />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/features" element={<Features />} />
+          <Route path="/careers" element={<Careers />} />
           
 
           {/* Protected Routes */}
