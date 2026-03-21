@@ -95,6 +95,7 @@ const TeamPage: React.FC = () => {
     {/* CTA */}
     <section className="story-cta-section">
 
+
       {/* LEFT */}
       <img src={glowLine} className="cta-glow-line glow-left glow-layer1" />
       <img src={glowLine} className="cta-glow-line glow-left glow-layer2" />
@@ -108,6 +109,15 @@ const TeamPage: React.FC = () => {
       <img src={glowLine} className="cta-glow-line glow-right glow-layer3" />
       <img src={glowLine} className="cta-glow-line glow-right glow-layer4" />
       <img src={glowLine} className="cta-glow-line glow-right glow-layer5" />
+
+
+
+      {/* TOP RIGHT */}
+      <img src={glowLine} className="cta-glow-line glow-top-right glow-layer1" />
+      <img src={glowLine} className="cta-glow-line glow-top-right glow-layer2" />
+      <img src={glowLine} className="cta-glow-line glow-top-right glow-layer3" />
+      <img src={glowLine} className="cta-glow-line glow-top-right glow-layer4" />
+      <img src={glowLine} className="cta-glow-line glow-top-right glow-layer5" />
 
       <div className="relative z-20 max-w-[1355px] mx-auto text-center pt-[50px] pb-[120px]">
 
@@ -249,12 +259,12 @@ const TeamPage: React.FC = () => {
 
 .glow-layer2{
   filter: blur(280px);
-  opacity:0.55;
+  opacity:0.35;
 }
 
 .glow-layer3{
   filter: blur(320px);
-  opacity:0.35;
+  opacity:0.15;
 }
 
 .glow-layer4{
@@ -264,27 +274,52 @@ const TeamPage: React.FC = () => {
 
 .glow-layer5{
   filter: blur(200px);
-  opacity:0.15;
+  opacity:0;
 }
 
 
 /* LEFT beams */
+.glow-left{
+width: 1500px
+}
 
 /* LEFT beams → CENTERED */
-.glow-left.glow-layer1 { top: 30%; left: -380px; transform: rotate(-2deg); }
-.glow-left.glow-layer2 { top: 35%; left: -340px; transform: rotate(-2deg); }
-.glow-left.glow-layer3 { top: 40%; left: -300px; transform: rotate(-2deg); }
-.glow-left.glow-layer4 { top: 45%; left: -260px; transform: rotate(-2deg); }
-.glow-left.glow-layer5 { top: 50%; left: -220px; transform: rotate(-2deg); }
+.glow-left.glow-layer1 { top: 38%; left: -380px; transform: rotate(-2deg); }
+.glow-left.glow-layer2 { top: 40%; left: -340px; transform: rotate(-2deg); }
+.glow-left.glow-layer3 { top: 42%; left: -300px; transform: rotate(-2deg); }
+.glow-left.glow-layer4 { top: 44%; left: -260px; transform: rotate(-2deg); }
+.glow-left.glow-layer5 { top: 46%; left: -220px; transform: rotate(-2deg); }
+
+
+
+/* RIGHT beams */
+.glow-right{
+width: 1150px
+}
+
+/* RIGHT beams */
+
+.glow-right.glow-layer1 { bottom:-210px; right:-380px; transform:rotate(-65deg) scaleX(-1); }
+.glow-right.glow-layer2 { bottom:-200px; right:-340px; transform:rotate(22deg) scaleX(-1); }
+.glow-right.glow-layer3 { bottom:-220px; right:-300px; transform:rotate(22deg) scaleX(-1); }
+.glow-right.glow-layer4 { bottom:-240px; right:-260px; transform:rotate(22deg) scaleX(-1); }
+.glow-right.glow-layer5 { bottom:-260px; right:-220px; transform:rotate(22deg) scaleX(-1); }
+
+
+
+/* TOP RIGHT beams */
+.glow-top-right{
+width: 1800px
+}
 
 
 /* RIGHT beams */
 
-.glow-right.glow-layer1 { bottom:-120px; right:-380px; transform:rotate(-82deg) scaleX(-1); }
-.glow-right.glow-layer2 { bottom:-150px; right:-340px; transform:rotate(22deg) scaleX(-1); }
-.glow-right.glow-layer3 { bottom:-180px; right:-300px; transform:rotate(22deg) scaleX(-1); }
-.glow-right.glow-layer4 { bottom:-210px; right:-260px; transform:rotate(22deg) scaleX(-1); }
-.glow-right.glow-layer5 { bottom:-240px; right:-220px; transform:rotate(22deg) scaleX(-1); }
+.glow-top-right.glow-layer1 { top:-80px; right:-380px; transform:rotate(-70deg) scaleX(-1); }
+.glow-top-right.glow-layer2 { top:-100px; right:-340px; transform:rotate(22deg) scaleX(-1); }
+.glow-top-right.glow-layer3 { top:-120px; right:-300px; transform:rotate(22deg) scaleX(-1); }
+.glow-top-right.glow-layer4 { top:-140px; right:-260px; transform:rotate(22deg) scaleX(-1); }
+.glow-top-right.glow-layer5 { top:-160px; right:-220px; transform:rotate(22deg) scaleX(-1); }
 
 
 
