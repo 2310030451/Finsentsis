@@ -10,6 +10,7 @@ import Contact from "./pages/contact/Contact";
 import Features from "./pages/Features/Features";
 import Careers from "./pages/Careers/Careers";
 import Solution from "./pages/Solution/solution";
+import About from "./pages/About/About";
 
 
 import ProtectedRoute from "./components/auth/ProtectedRoute";
@@ -33,6 +34,7 @@ function App() {
           <Route path="/features" element={<Features />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/solution" element={<Solution />} />
+          <Route path="/about" element={<About />} />
           
 
           {/* Protected Routes */}
