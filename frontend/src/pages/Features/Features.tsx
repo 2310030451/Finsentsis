@@ -7,56 +7,64 @@ import Cta from "../../components/Home/Cta";
 import Navbar from "../../components/Home/Navbar";
 
 import {
-  Speedometer,
-  GearWidget,
-  DashboardWidget,
-  RiskChart,
-  AuditReportsWidget,
-  MapWidget,
+  AIWidget,
+  AuditWidget,
+  ComplianceWidget,
+  CopilotWidget,
+  GovernanceWidget,
+  MarketplaceWidget,
+  PolicyWidget,
+  RealEstateWidget,
+  RiskWidget,
 } from "../../components/Features/GraphCard1";
 
 const features: FeatureData[] = [
   {
     number: "01",
-    title: "Regulatory Intelligence Engine",
-    description:
-      "Tracks and analyzes global laws using AI to ensure organizations always stay updated with the latest regulatory requirements across all jurisdictions.",
-    widget: <Speedometer />,
+    title: "AI Regulatory Intelligence Layer",
+    widget: <AIWidget />,
   },
   {
     number: "02",
-    title: "Policy-to-Task Automation",
-    description:
-      "Converts policies into real-time workflows, reducing human effort and ensuring consistent compliance execution across the organization.",
-    widget: <GearWidget />,
+    title: "Policy-to-Process Automation Engine",
+    widget: <PolicyWidget />,
   },
   {
     number: "03",
-    title: "Unified Governance Dashboard",
-    description:
-      "A single view of ESG, tax, labor, and data compliance metrics, providing complete visibility into your organization's compliance posture.",
-    widget: <DashboardWidget />,
+    title: "Autonomous Compliance Copilot",
+    widget: <CopilotWidget />,
   },
   {
     number: "04",
-    title: "Predictive Risk Alerts",
-    description:
-      "Machine learning models detect anomalies and forecast compliance risks before they become violations, enabling proactive mitigation.",
-    widget: <RiskChart />,
+    title: "Audit-Ready Evidence & Blockchain Trail",
+    widget: <AuditWidget />,
   },
   {
     number: "05",
-    title: "Audit-Ready Reports",
-    description:
-      "Auto-generates compliant, standardized reports for regulators and auditors on demand, eliminating manual report preparation.",
-    widget: <AuditReportsWidget />,
+    title: "Global Dashboard & Risk Radar",
+    widget: <RiskWidget />, // chart-style visual
   },
   {
     number: "06",
-    title: "Multi-Region Coverage",
-    description:
-      "Supports compliance frameworks across multiple countries and industries, enabling seamless global expansion and regulatory management.",
-    widget: <MapWidget />,
+    title: "Consulting & Expert Marketplace",
+    widget: <MarketplaceWidget />,
+  },
+  {
+    number: "07",
+    title: "Legal Governance & Contract Compliance Engine",
+    widget: <ComplianceWidget />,
+  },
+ 
+  {
+    number: "08",
+    title: "Real Estate & Asset Compliance Engine",
+    widget: <RealEstateWidget />,
+  },
+  
+  {
+    number: "09",
+    title: "Workforce & Immigration Compliance Engine",
+    widget: <GovernanceWidget />, // gear-style image
   },
 ];
 
