@@ -193,7 +193,7 @@ export default function CTA() {
   font-size: 14px; 
   color: rgba(255,255,255,0.45);
   line-height: 1.65; 
-  max-width: 340px;
+  max-width: 540px;
   margin: 0 auto 40px; 
   position: relative; 
   z-index: 1;
